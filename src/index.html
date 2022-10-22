@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{ "title": "Главная" })
+
+<body class="body">
+  @@include('html/header.html',{ })
+  <main>
+    <section class="preferences">
+      <div class="container preferences__container">
+        <div class="preferences__top">
+          <h1 class="preferences__title text-js title-reset">Preferences</h1>
+          <p class="preferences__descr text-js descr-reset">On this page you can configure the main system parameters
+            available
+            for customization</p>
+
+          <form class="preferences__form" action="#">
+            <ul class="preferences__form-list">
+              <li class="preferences__form-item">
+                <span class="preferences__form-span text-js">Company Title</span>
+                <label class="preferences__form-label" for="ComponyTitle"></label>
+                <input class="preferences__form-input input-js text-js" name="compony-title" type="text"
+                  id="ComponyTitle" placeholder="Title">
+              </li>
+              <li class="preferences__form-item">
+                <span class="preferences__form-span text-js">First Day</span>
+                <div class="dropdown">
+                  <button class="dropdown__button input-js" type="button">
+                    <span class="dropdown__button-span text-js">not chosen</span>
+                    <svg class="dropdown__button-svg">
+                      <use xlink:href="img/icons/icons.svg#arrow"></use>
+                    </svg>
+                  </button>
+                  <ul class="dropdown__list text-js">
+                    <li class="dropdown__list-item input-js text-js" data-value="monday">Monday</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="tuesday">Tuesday</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="wednesday">Wednesday</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="thursday">Thursday</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="friday">Friday</li>
+                  </ul>
+                  <input type="text" name="first-dat" id="dayOfWeek" class="dropdown__input-hidden input-js text-js">
+                  <label class="preferences__form-label" for="dayOfWeek"></label>
+                </div>
+              </li>
+              <li class="preferences__form-item">
+                <span class="preferences__form-span  text-js">Container Width</span>
+                <div class="dropdown">
+                  <button class="dropdown__button input-js " type="button">
+                    <span class="dropdown__button-span text-js">not chosen</span>
+                    <svg class="dropdown__button-svg">
+                      <use xlink:href="img/icons/icons.svg#arrow"></use>
+                    </svg>
+                  </button>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item input-js text-js" data-value="fixed">Fixed</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="absolute">Absolute</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="relative">Relative</li>
+                  </ul>
+                  <input type="text" name="select-category" id="containerWidth"
+                    class="dropdown__input-hidden input-js text-js">
+                  <label class="preferences__form-label" for="containerWidth"></label>
+                </div>
+              </li>
+              <li class="preferences__form-item">
+                <span class="preferences__form-span text-js">Homepage</span>
+                <div class="dropdown">
+                  <button class="dropdown__button input-js" type="button">
+                    <span class="dropdown__button-span text-js">not chosen</span>
+                    <svg class="dropdown__button-svg">
+                      <use xlink:href="img/icons/icons.svg#arrow"></use>
+                    </svg>
+                  </button>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item input-js text-js" data-value="starredProjects">Starred Projects</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="middleProjects">Middle Projects</li>
+                    <li class="dropdown__list-item input-js text-js" data-value="endProjects">End Projects</li>
+                  </ul>
+                  <input type="text" name="select-category" id="homePage"
+                    class="dropdown__input-hidden input-js text-js">
+                  <label class="preferences__form-label" for="homePage"></label>
+                </div>
+              </li>
+              <li class="preferences__form-item">
+                <span class="preferences__form-span text-js"> Indent Size</span>
+                <label class="preferences__form-label" for="indentSize"></label>
+
+                <input class="preferences__form-input input-js text-js" type="text" id="indentSize"
+                  placeholder="Default">
+              </li>
+              <li class="preferences__form-item">
+                <span class="preferences__form-span text-js">Personal Code</span>
+                <div class="preferences__form-code">
+                  <input class="preferences__form-input preferences__form-input-code input-js text-js" type="text"
+                    id="personalCode-1" placeholder="1111">
+                  <span class="preferences__form-code-span text-js">-</span>
+                  <label class="preferences__form-label" for="personalCode-1"></label>
+                  <input class="preferences__form-input preferences__form-input-code input-js text-js" type="text"
+                    id="personalCode-2" placeholder="1111">
+                  <span class="preferences__form-code-span text-js">-</span>
+                  <label class="preferences__form-label" for="personalCode-2"></label>
+                  <input class="preferences__form-input preferences__form-input-code input-js text-js" type="text"
+                    id="personalCode-3" placeholder="1111">
+                  <label class="preferences__form-label" for="personalCode-3"></label>
+                </div>
+              </li>
+              <li class="preferences__form-item preferences__form-item-radio">
+                <span class="preferences__form-span preferences__form-span-radio text-js">Theme</span>
+                <div class="preferences__form-radio">
+                  <div class="preferences__form-radio-content">
+                    <input class="preferences__form-input preferences__form-input-radio input-js text-js" type="radio"
+                      id="themeLight" name="theme" value="light">
+                    <label class="preferences__form-label preferences__form-label-radio text-js"
+                      for="themeLight">Light</label>
+                  </div>
+                  <div class="preferences__form-radio-content">
+                    <input class="preferences__form-input preferences__form-input-radio input-js text-js" type="radio"
+                      id="themeDark" value="dark" name="theme">
+                    <label class="preferences__form-label preferences__form-label-radio text-js"
+                      for="themeDark">Dark</label>
+                  </div>
+                </div>
+              </li>
+
+              <div class="preferences__form-btns">
+                <button class="preferences__form-btn-save btn-reset" type="submit">Apply and Save</button>
+                <button class="preferences__form-btn-cancel btn-reset">Cancel</button>
+              </div>
+            </ul>
+          </form>
+        </div>
+
+
+        <div class="preferences__bottom">
+          <p class="preferences__bottom-descr descr-reset text-js">2020-2022
+            <span class="preferences__bottom-span span-js">Terms of Service</span>
+            and
+            <span class="preferences__bottom-span span-js">Conditions</span>
+          </p>
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+  @@include('html/footer.html',{ })
+  <script src="js/app.min.js"></script>
+</body>
+
+</html>

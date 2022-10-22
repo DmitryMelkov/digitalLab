@@ -1,0 +1,322 @@
+@import "_variables";
+@import "_mixins";
+
+.preferences {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-image: url("../img/form-bg.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $colorWhite;
+  }
+  &__title {
+    @include text(28px, 32px, 500, $colorBlack);
+  }
+  &__descr {
+    margin-top: 4px;
+    @include text(14px, 16px, 400, $colorGrey);
+    margin-bottom: 32px;
+  }
+  &__form-item {
+    margin-bottom: 24px;
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__form-span {
+    @include text(14px, 16px, 400, $colorGrey);
+  }
+  &__form-input {
+    width: 196px;
+    padding-left: 8px;
+    min-height: 32px;
+    @include text(14px, 16px, 400, $colorBlack);
+    border: 1px solid $colorGrey;
+    background-color: $colorInput;
+    border-radius: 6px;
+    transition-property: box-shadow, border;
+    @include transition;
+  }
+  &__form-input::placeholder {
+    @include text(14px, 16px, 300, $colorPlaceHolder);
+  }
+  &__form-code {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form-input-code {
+    max-width: 50px;
+  }
+  &__form-code-span {
+    margin-left: 8px;
+    margin-right: 8px;
+    @include text(20px, 16px, 300, $colorBlack);
+  }
+  &__form-item-radio {
+    justify-content: flex-start;
+  }
+  &__form-span-radio {
+    margin-right: 50px;
+  }
+  &__form-radio {
+    display: flex;
+    flex-direction: column;
+  }
+  &__form-radio-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__form-input-radio {
+    display: none;
+  }
+  &__form-label-radio {
+    padding-left: 25px;
+
+    @include text(14px, 24px, 400, $colorBlack);
+
+    cursor: pointer;
+  }
+  &__form-label-radio::before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid $colorGrey;
+    background-color: $colorWhite;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 3px;
+    left: 0;
+    z-index: 1;
+
+    transition-property: border;
+    @include transition;
+  }
+
+  &__form-label-radio::after {
+    content: "";
+    display: block;
+    width: 11px;
+    height: 11px;
+
+    background-color: $colorBlue;
+    border-radius: 50%;
+    opacity: 0;
+
+    position: absolute;
+    top: 6.5px;
+    left: 3.5px;
+    z-index: 2;
+
+    transition-property: opacity;
+    @include transition;
+  }
+  &__form-input-radio:checked + &__form-label-radio::before {
+    border-color: $colorBlue;
+  }
+  &__form-input-radio:checked + &__form-label-radio::after {
+    opacity: 1;
+  }
+  &__form-btn-save {
+    margin-right: 16px;
+    width: 115px;
+    height: 32px;
+    @include text(14px, 24px, 500, $colorWhite);
+    border: 1px solid $colorBlue;
+    border-radius: 3px;
+    background-color: $colorBlue;
+    transition-property: box-shadow;
+    @include transition;
+  }
+  &__form-btn-cancel {
+    width: 115px;
+    height: 32px;
+    @include text(14px, 24px, 500, $colorBlue);
+    border: 1px solid $colorBlue;
+    border-radius: 3px;
+    background-color: $colorWhite;
+    transition-property: box-shadow;
+    @include transition;
+  }
+  &__bottom {
+    display: flex;
+    justify-content: center;
+  }
+  &__bottom-descr {
+    @include text(14px, 20px, 400, $colorBlack);
+    font-family: "Montserrat", sans-serif;
+  }
+  &__bottom-span {
+    @include text(14px, 17px, 400, $colorBlue);
+    border-bottom: 1px solid rgba($color: $colorBlue, $alpha: 0.2);
+  }
+}
+
+.dropdown {
+  position: relative;
+  width: 196px;
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+    width: 100%;
+    min-height: 32px;
+
+    @include text(14px, 16px, 300, $colorBlack);
+
+    text-align: left;
+    border: 1px solid $colorGrey;
+    background-color: $colorInput;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  &__button-span {
+    @include text(14px, 16px, 300, $colorBlack);
+    pointer-events: none;
+  }
+  &__button-svg {
+    @include svg-icon(12px, 8px, $colorPlaceHolder);
+    transition-property: transform;
+    @include transition;
+  }
+  &__button--active &__button-svg {
+    transform: rotate(180deg);
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+    background-color: $colorSelectOpen;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border-radius: 6px;
+
+    width: 100%;
+
+    z-index: 1;
+  }
+  &__list--visible {
+    display: block;
+  }
+  &__list-item {
+    padding: 8px;
+    cursor: pointer;
+  }
+  &__list-item:first-child {
+    border-radius: 6px 6px 0 0;
+  }
+  &__list-item:last-child {
+    border-radius: 0 0 6px 6px;
+    border-bottom: 1px solid #7e9bbd;
+  }
+  &__input-hidden {
+    display: none;
+  }
+}
+
+.dark-container {
+  background-color: $colorBlackLight;
+}
+.dark-text {
+  color: $colorWhite;
+}
+
+.dark-input {
+  background-color: $colorGrey;
+}
+
+.dark-btn-save {
+  background-color: $colorLightBlue;
+  color: $colorBlack;
+  border: 1px solid $colorLightBlue;
+}
+
+.dark-btn-cancel {
+  background-color: $colorDarkCancel;
+  color: $colorLightBlue;
+  border: 1px solid $colorDarkCancel;
+}
+
+.dark-span {
+  color: $colorLightBlue;
+}
+
+.label::before {
+  border: 2px solid $colorWhite;
+  background-color: transparent;
+}
+
+.label::after {
+  background-color: $colorLightBlue;
+}
+
+.preferences__form-input-radio:checked + .label::before {
+  border-color: $colorLightBlue;
+}
+
+@media (min-width: 1024px) {
+  .preferences {
+    &__form-input:hover:not(:active) {
+      box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+    }
+    &__form-btn-save:hover,
+    &__form-btn-cancel:hover {
+      box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .dropdown {
+    &__list-item:hover {
+      background-color: $colorInput;
+    }
+    &__button:hover {
+      box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+//active, focus
+.preferences {
+  &__form-input:active {
+    border: 1px solid $colorBlue;
+  }
+  &__form-input:focus {
+    border: 1px solid $colorBlue;
+    outline: none;
+  }
+  &__form-btn-save:active,
+  &__form-btn-cancel:active {
+    box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+  }
+  &__form-btn-save:focus,
+  &__form-btn-cancel:focus {
+    box-shadow: inset 0px 0px 0px 100px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+}
+.dropdown {
+  &__button:active {
+    border: 1px solid $colorBlue;
+  }
+  &__button:focus {
+    border: 1px solid $colorBlue;
+  }
+  &__button:focus &__button-svg {
+    color: $colorBlue;
+  }
+}

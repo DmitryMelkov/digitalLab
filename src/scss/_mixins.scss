@@ -1,0 +1,20 @@
+@import "_variables";
+
+
+@mixin transition {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin text($font-size, $line-height, $font-weight, $color) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+@mixin svg-icon($width, $height, $color) {
+  width: $width;
+  height: $height;
+  color: $color;
+}
